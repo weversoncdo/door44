@@ -1,6 +1,7 @@
 import React from 'react';
 import { InstagramCard } from '../InstagramCard';
 import { Film, Play, MapPin, Disc } from 'lucide-react';
+import { IMAGES } from '../../assets/images';
 
 interface Page07Props {
   onWatchVideo: () => void;
@@ -90,7 +91,7 @@ export const Page07GabrielzProduction: React.FC<Page07Props> = ({ onWatchVideo }
             credits={credits}
             instagramUrl="https://www.instagram.com/gabrielz._/reel/DZ8R1i-vQAQ/"
             username="gabrielz._"
-            imagePreview="/src/assets/images/gabrielz_authentic_portrait_1791289210041.jpg"
+            imagePreview={IMAGES.gabrielzPortrait}
             captionSnippet="EP Heisenberg na pista! Videoclipe da faixa 'Retomada' nas ruas de São Paulo. Produção pesada da @door44.studios!"
           />
         </div>

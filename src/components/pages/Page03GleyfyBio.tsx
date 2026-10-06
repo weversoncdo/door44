@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, Sparkles, Music2 } from 'lucide-react';
+import { IMAGES } from '../../assets/images';
 
 interface Page03Props {
   onGoToProduction: () => void;
@@ -13,7 +14,7 @@ export const Page03GleyfyBio: React.FC<Page03Props> = ({ onGoToProduction }) => 
         <div className="lg:col-span-5 flex items-center justify-center">
           <div className="relative w-full max-w-sm sm:max-w-md aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border-4 border-[#27272a]/70 group">
             <img
-              src="/src/assets/images/gleyfy_brauly_thumbsup_portrait_1791289219812.jpg"
+              src={IMAGES.gleyfyPortrait}
               alt="Gleyfy Brauly - Retrato estilizado com colagem de jornal"
               referrerPolicy="no-referrer"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"

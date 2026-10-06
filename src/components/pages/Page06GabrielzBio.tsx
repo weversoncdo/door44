@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, Flame, Music } from 'lucide-react';
+import { IMAGES } from '../../assets/images';
 
 interface Page06Props {
   onGoToProduction: () => void;
@@ -13,7 +14,7 @@ export const Page06GabrielzBio: React.FC<Page06Props> = ({ onGoToProduction }) =
         <div className="lg:col-span-5 flex items-center justify-center">
           <div className="relative w-full max-w-sm sm:max-w-md aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border-4 border-[#27272a]/70 group">
             <img
-              src="/src/assets/images/gabrielz_authentic_portrait_1791289210041.jpg"
+              src={IMAGES.gabrielzPortrait}
               alt="Gabrielz - Retrato com colagem de jornal rasgado"
               referrerPolicy="no-referrer"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"

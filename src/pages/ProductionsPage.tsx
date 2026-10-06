@@ -23,6 +23,7 @@ import {
 import { HeaderBrand } from '../components/Logo44';
 import { InstagramCard } from '../components/InstagramCard';
 import { VideoModal } from '../components/VideoModal';
+import { IMAGES } from '../assets/images';
 
 interface ProductionsPageProps {
   onBackToHome: () => void;
@@ -257,7 +258,7 @@ export const ProductionsPage: React.FC<ProductionsPageProps> = ({
                   className="relative w-full h-full cursor-pointer"
                 >
                   <img
-                    src="/src/assets/images/brick_wall_cover_1790949441925.jpg"
+                    src={IMAGES.brickWallCover}
                     alt="Muro de tijolos brancos - Another Brick in the Wall"
                     className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-500"
                   />
@@ -327,7 +328,7 @@ export const ProductionsPage: React.FC<ProductionsPageProps> = ({
 
                         {/* Gleyfy Brauly Cutout Photo with thumbs up and red glasses */}
                         <img
-                          src="/src/assets/images/gleyfy_brauly_thumbsup_portrait_1791289219812.jpg"
+                          src={IMAGES.gleyfyPortrait}
                           alt="Gleyfy Brauly"
                           referrerPolicy="no-referrer"
                           className="w-full h-full object-cover object-top relative z-10"
@@ -440,7 +441,7 @@ export const ProductionsPage: React.FC<ProductionsPageProps> = ({
                             isOpen: true,
                             title: 'Another Brick In The Wall, Part 2 (Pink Floyd Cover)',
                             artist: 'Gleyfy Brauly',
-                            coverImage: '/src/assets/images/brick_wall_cover_1790949441925.jpg',
+                            coverImage: IMAGES.brickWallCover,
                             youtubeId: 'GqgEWBzCh64'
                           })}
                           className="inline-flex items-center gap-2 px-5 py-3 bg-[#1e1e28] hover:bg-[#272736] text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-all border border-[#3f3f4e] cursor-pointer"
@@ -478,7 +479,7 @@ export const ProductionsPage: React.FC<ProductionsPageProps> = ({
                         credits={gleyfyCredits}
                         instagramUrl="https://www.instagram.com/gleyfybraulyy/reel/DC-fxphv1xc/"
                         username="gleyfybraulyy"
-                        imagePreview="/src/assets/images/gleyfy_brauly_thumbsup_portrait_1791289219812.jpg"
+                        imagePreview={IMAGES.gleyfyPortrait}
                         captionSnippet="45 anos do clássico 'The Wall' do Pink Floyd homenageados em grande estilo com Gleyfy Brauly! Direção Door44 Studios."
                       />
                     </div>
@@ -551,7 +552,7 @@ export const ProductionsPage: React.FC<ProductionsPageProps> = ({
                   className="relative w-full h-full cursor-pointer"
                 >
                   <img
-                    src="/src/assets/images/gabrielz_retomada_cover_1790949464295.jpg"
+                    src={IMAGES.gabrielzCover}
                     alt="Gabrielz Retomada videoclipe oficial"
                     className="w-full h-full object-cover object-center grayscale contrast-125 opacity-90 group-hover:scale-[1.02] transition-transform duration-500"
                   />
@@ -614,7 +615,7 @@ export const ProductionsPage: React.FC<ProductionsPageProps> = ({
                       <div className="absolute inset-2 rounded-2xl bg-[#141419] overflow-hidden">
                         {/* Real Gabrielz Photo */}
                         <img
-                          src="/src/assets/images/gabrielz_authentic_portrait_1791289210041.jpg"
+                          src={IMAGES.gabrielzPortrait}
                           alt="Gabrielz - Imagem Real Oficial"
                           referrerPolicy="no-referrer"
                           className="w-full h-full object-cover object-top relative z-10"
@@ -728,7 +729,7 @@ export const ProductionsPage: React.FC<ProductionsPageProps> = ({
                             isOpen: true,
                             title: 'Retomada (Feat. Liz Sacramento)',
                             artist: 'Gabrielz',
-                            coverImage: '/src/assets/images/gabrielz_authentic_portrait_1791289210041.jpg',
+                            coverImage: IMAGES.gabrielzPortrait,
                             youtubeId: 't7SBNfqqpxs'
                           })}
                           className="inline-flex items-center gap-2 px-5 py-3 bg-[#1e1e28] hover:bg-[#272736] text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-all border border-[#3f3f4e] cursor-pointer"
@@ -766,7 +767,7 @@ export const ProductionsPage: React.FC<ProductionsPageProps> = ({
                         credits={gabrielzCredits}
                         instagramUrl="https://www.instagram.com/gabrielz._/reel/DZ8R1i-vQAQ/"
                         username="gabrielz._"
-                        imagePreview="/src/assets/images/gabrielz_authentic_portrait_1791289210041.jpg"
+                        imagePreview={IMAGES.gabrielzPortrait}
                         captionSnippet="EP Heisenberg na pista! Videoclipe da faixa 'Retomada' nas ruas de São Paulo. Produção pesada da @door44.studios!"
                       />
                     </div>
@@ -799,7 +800,7 @@ export const ProductionsPage: React.FC<ProductionsPageProps> = ({
               <div className="bg-[#121217] border border-[#27272a] rounded-2xl overflow-hidden hover:border-[#e11d24]/60 transition-all group flex flex-col">
                 <div className="relative aspect-video bg-[#1a1a24] overflow-hidden">
                   <img
-                    src="/src/assets/images/door_light_hero_1790949397781.jpg"
+                    src={IMAGES.doorLightHero}
                     alt="Entre Portas"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-70"
                   />
@@ -827,7 +828,7 @@ export const ProductionsPage: React.FC<ProductionsPageProps> = ({
               <div className="bg-[#121217] border border-[#27272a] rounded-2xl overflow-hidden hover:border-[#e11d24]/60 transition-all group flex flex-col">
                 <div className="relative aspect-video bg-[#1a1a24] overflow-hidden">
                   <img
-                    src="/src/assets/images/gabrielz_retomada_cover_1790949464295.jpg"
+                    src={IMAGES.gabrielzCover}
                     alt="Vozes da Cena"
                     className="w-full h-full object-cover grayscale group-hover:scale-105 transition-transform duration-500 opacity-60"
                   />

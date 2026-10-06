@@ -1,6 +1,7 @@
 import React from 'react';
 import { InstagramCard } from '../InstagramCard';
 import { Film, Play, MapPin, Calendar } from 'lucide-react';
+import { IMAGES } from '../../assets/images';
 
 interface Page04Props {
   onWatchVideo: () => void;
@@ -89,7 +90,7 @@ export const Page04GleyfyProduction: React.FC<Page04Props> = ({ onWatchVideo }) 
             credits={credits}
             instagramUrl="https://www.instagram.com/gleyfybraulyy/reel/DC-fxphv1xc/"
             username="gleyfybraulyy"
-            imagePreview="/src/assets/images/gleyfy_brauly_thumbsup_portrait_1791289219812.jpg"
+            imagePreview={IMAGES.gleyfyPortrait}
             captionSnippet="45 anos do clássico 'The Wall' do Pink Floyd homenageados em grande estilo com Gleyfy Brauly! Direção Door44 Studios."
           />
         </div>

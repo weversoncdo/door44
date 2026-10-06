@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Play, ExternalLink } from 'lucide-react';
 import { VideoModal } from '../VideoModal';
 import { HeaderBrand } from '../Logo44';
+import { IMAGES } from '../../assets/images';
 
 export const Page08GabrielzVideo: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -16,7 +17,7 @@ export const Page08GabrielzVideo: React.FC = () => {
         {/* Background Image: Grayscale urban scene */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/src/assets/images/gabrielz_retomada_cover_1790949464295.jpg"
+            src={IMAGES.gabrielzCover}
             alt="Gabrielz Retomada videoclipe oficial - Vila Madalena São Paulo"
             className="w-full h-full object-cover object-center grayscale contrast-125 group-hover:scale-[1.02] transition-transform duration-500 opacity-90"
           />
@@ -87,7 +88,7 @@ export const Page08GabrielzVideo: React.FC = () => {
         onClose={() => setModalOpen(false)}
         title="Retomada (Feat. Liz Sacramento)"
         artist="Gabrielz"
-        coverImage="/src/assets/images/gabrielz_retomada_cover_1790949464295.jpg"
+        coverImage={IMAGES.gabrielzCover}
       />
     </section>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, Play } from 'lucide-react';
+import { IMAGES } from '../../assets/images';
 
 interface Page01Props {
   onNext: () => void;
@@ -12,7 +13,7 @@ export const Page01Hero: React.FC<Page01Props> = ({ onNext, onExploreProductions
       {/* Background with door light beam image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/src/assets/images/door_light_hero_1790949397781.jpg"
+          src={IMAGES.doorLightHero}
           alt="Porta entreaberta com feixe de luz radiante Door44 Studios"
           className="w-full h-full object-cover object-center opacity-85"
         />

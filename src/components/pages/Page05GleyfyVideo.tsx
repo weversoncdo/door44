@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Play, ExternalLink } from 'lucide-react';
 import { VideoModal } from '../VideoModal';
 import { HeaderBrand } from '../Logo44';
+import { IMAGES } from '../../assets/images';
 
 export const Page05GleyfyVideo: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -16,7 +17,7 @@ export const Page05GleyfyVideo: React.FC = () => {
         {/* Background: White Brick Wall texture */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/src/assets/images/brick_wall_cover_1790949441925.jpg"
+            src={IMAGES.brickWallCover}
             alt="Muro de tijolos brancos - Another Brick in the Wall"
             className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-500"
           />
@@ -95,7 +96,7 @@ export const Page05GleyfyVideo: React.FC = () => {
         onClose={() => setModalOpen(false)}
         title="Another Brick In The Wall, Part 2 (Pink Floyd Cover)"
         artist="Gleyfy Brauly"
-        coverImage="/src/assets/images/brick_wall_cover_1790949441925.jpg"
+        coverImage={IMAGES.brickWallCover}
       />
     </section>
   );
