@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="100%" height="100%">
+  <rect width="640" height="640" rx="32" fill="#18181b" />
+  <!-- Left 4 -->
+  <polyline
+    points="280,115 125,320 515,320"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="36"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <line
+    x1="280"
+    y1="115"
+    x2="280"
+    y2="425"
+    stroke="#ffffff"
+    stroke-width="36"
+    stroke-linecap="round"
+  />
+
+  <!-- Right 4 (Inverted & Interlocked) -->
+  <polyline
+    points="515,320 360,525"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="36"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <line
+    x1="360"
+    y1="215"
+    x2="360"
+    y2="525"
+    stroke="#ffffff"
+    stroke-width="36"
+    stroke-linecap="round"
+  />
+</svg>
