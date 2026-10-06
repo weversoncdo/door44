@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-cinzel: 'Cinzel', serif;
+    --font-bebas: 'Bebas Neue', sans-serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-caveat: 'Caveat', cursive;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #08080a;
+    color: #e4e4e7;
+    overflow-x: hidden;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0d0d11;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #27272a;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #e11d24;
+  }
+}
+
+.font-cinzel {
+  font-family: var(--font-cinzel);
+}
+
+.font-bebas {
+  font-family: var(--font-bebas);
+}
+
+.font-caveat {
+  font-family: var(--font-caveat);
+}
+
+/* Cinematic film grain & subtle paper crease texture */
+.paper-grunge-bg {
+  background-color: #08080a;
+  background-image: 
+    radial-gradient(ellipse at 50% 30%, rgba(225, 29, 36, 0.05) 0%, transparent 60%),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.02) 0%, transparent 40%),
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.008) 0, rgba(255, 255, 255, 0.008) 1px, transparent 0, transparent 50px);
+}
+
+/* Distressed stamped text effect */
+.distressed-text {
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.2);
+  letter-spacing: 0.04em;
+}
+
+/* Light beam glow effect */
+.light-beam-glow {
+  box-shadow: 0 0 80px 20px rgba(255, 255, 255, 0.15);
+}
+
+/* Red brand glow */
+.red-glow {
+  box-shadow: 0 0 25px -5px rgba(225, 29, 36, 0.5);
+}
+

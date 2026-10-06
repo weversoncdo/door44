@@ -1,0 +1,6 @@
+{
+  "name": "Door44 Studios - Produtora Audiovisual",
+  "description": "Produtora audiovisual especializada em criação de videoclipes, curtas e longas-metragens para todos os gêneros musicais.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
