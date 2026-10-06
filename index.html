@@ -14,10 +14,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
     <script async src="//www.instagram.com/embed.js"></script>
+    <script>
+      // Automatically redirect to the compiled /docs/ app if served from GitHub Pages root
+      if (window.location.hostname.includes('github.io')) {
+        var path = window.location.pathname;
+        if (!path.includes('/docs')) {
+          var target = path.endsWith('/') ? path + 'docs/' : path + '/docs/';
+          window.location.replace(target);
+        }
+      }
+    </script>
   </head>
   <body class="bg-[#09090b] text-[#f4f4f5] antialiased selection:bg-[#e11d24] selection:text-white overflow-x-hidden">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-
