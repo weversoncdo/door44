@@ -87,11 +87,11 @@ export const Header: React.FC<HeaderProps> = ({
             <ArrowUpRight className="w-3.5 h-3.5" />
           </button>
 
-          {/* Hamburger button (visible on mobile / tablet) */}
+          {/* Hamburger button (visible only on mobile / small screens, hidden on desktop) */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Abrir menu de navegação"
-            className="p-2 text-[#e4e4e7] hover:text-white rounded-md hover:bg-[#18181b] transition-colors cursor-pointer"
+            className="md:hidden p-2 text-[#e4e4e7] hover:text-white rounded-md hover:bg-[#18181b] transition-colors cursor-pointer"
           >
             {mobileMenuOpen ? (
               <X className="w-6 h-6 text-[#e11d24]" />
