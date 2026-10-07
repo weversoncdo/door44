@@ -18,7 +18,8 @@ import {
   Tv,
   MessageCircle,
   Youtube,
-  Instagram
+  Instagram,
+  Clock
 } from 'lucide-react';
 import { HeaderBrand } from '../components/Logo44';
 import { InstagramCard } from '../components/InstagramCard';
@@ -796,59 +797,111 @@ export const ProductionsPage: React.FC<ProductionsPageProps> = ({
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Project Card 1 */}
-              <div className="bg-[#121217] border border-[#27272a] rounded-2xl overflow-hidden hover:border-[#e11d24]/60 transition-all group flex flex-col">
-                <div className="relative aspect-video bg-[#1a1a24] overflow-hidden">
-                  <img
-                    src={IMAGES.doorLightHero}
-                    alt="Entre Portas"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-70"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-                  <div className="absolute top-4 left-4 px-2.5 py-1 rounded bg-[#e11d24] text-[10px] font-bold uppercase tracking-wider text-white">
-                    Curta-Metragem
+              {/* Card 1: Curta-Metragem */}
+              <div className="bg-[#121217] border border-[#27272a] hover:border-amber-500/50 rounded-2xl p-7 sm:p-9 transition-all flex flex-col justify-between relative overflow-hidden group shadow-xl">
+                {/* Subtle cinematic background glow */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl pointer-events-none group-hover:bg-amber-500/10 transition-colors" />
+
+                <div className="space-y-6 relative z-10">
+                  {/* Category & Status Badges */}
+                  <div className="flex items-center justify-between gap-3 flex-wrap">
+                    <span className="px-3 py-1 rounded bg-[#e11d24] text-xs font-bold uppercase tracking-wider text-white">
+                      Curta-Metragem
+                    </span>
+                    <div className="px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/40 text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center gap-2 shadow-sm">
+                      <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
+                      Em Produção
+                    </div>
                   </div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <span className="text-xs font-mono text-[#a1a1aa]">Ficção & Suspense · 4K Anamórfico</span>
-                    <h3 className="font-bebas text-3xl text-white">ENTRE PORTAS</h3>
+
+                  {/* Icon & Heading (Sem imagem e sem nome da produção) */}
+                  <div className="flex items-start gap-4 pt-1">
+                    <div className="w-13 h-13 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0 shadow-inner">
+                      <Clapperboard className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <span className="text-xs font-mono text-[#a1a1aa] uppercase tracking-wider">Door44 Studios</span>
+                      <h3 className="font-bebas text-3xl sm:text-4xl text-white tracking-wide">
+                        EM PRODUÇÃO
+                      </h3>
+                    </div>
                   </div>
-                </div>
-                <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                  <p className="text-xs sm:text-sm text-[#d4d4d8] leading-relaxed">
-                    Obra narrativa que explora a tênue linha entre a memória e a realidade de um fotógrafo recluso. Direção visual com lentes anamórficas e iluminação dramática de alto contraste.
+
+                  {/* Informação destacada */}
+                  <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center gap-3.5 text-amber-200">
+                    <Clock className="w-5 h-5 text-amber-400 shrink-0" />
+                    <div>
+                      <p className="text-sm font-bold text-white uppercase tracking-wider">Em Produção</p>
+                      <p className="text-xs text-amber-300 font-medium">Em breve estará disponível</p>
+                    </div>
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-[#a1a1aa] leading-relaxed">
+                    Projeto cinematográfico de curta-metragem em desenvolvimento pela Door44 Studios. Roteiro original, direção de fotografia em 4K e pós-produção em andamento.
                   </p>
-                  <div className="pt-3 border-t border-[#27272a] flex items-center justify-between text-xs text-[#a1a1aa]">
-                    <span>Circuito de Festivais</span>
-                    <span className="text-white font-mono">18 min · 4K 2.39:1</span>
-                  </div>
+                </div>
+
+                {/* Footer Status */}
+                <div className="mt-8 pt-4 border-t border-[#27272a] flex items-center justify-between text-xs relative z-10">
+                  <span className="text-amber-400 font-semibold flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+                    Em Produção
+                  </span>
+                  <span className="text-[#e4e4e7] font-mono text-xs">Em breve estará disponível</span>
                 </div>
               </div>
 
-              {/* Project Card 2 */}
-              <div className="bg-[#121217] border border-[#27272a] rounded-2xl overflow-hidden hover:border-[#e11d24]/60 transition-all group flex flex-col">
-                <div className="relative aspect-video bg-[#1a1a24] overflow-hidden">
-                  <img
-                    src={IMAGES.gabrielzCover}
-                    alt="Vozes da Cena"
-                    className="w-full h-full object-cover grayscale group-hover:scale-105 transition-transform duration-500 opacity-60"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-                  <div className="absolute top-4 left-4 px-2.5 py-1 rounded bg-[#3b82f6] text-[10px] font-bold uppercase tracking-wider text-white">
-                    Documentário / Longa
+              {/* Card 2: Longa-Metragem */}
+              <div className="bg-[#121217] border border-[#27272a] hover:border-amber-500/50 rounded-2xl p-7 sm:p-9 transition-all flex flex-col justify-between relative overflow-hidden group shadow-xl">
+                {/* Subtle cinematic background glow */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl pointer-events-none group-hover:bg-amber-500/10 transition-colors" />
+
+                <div className="space-y-6 relative z-10">
+                  {/* Category & Status Badges */}
+                  <div className="flex items-center justify-between gap-3 flex-wrap">
+                    <span className="px-3 py-1 rounded bg-[#3b82f6] text-xs font-bold uppercase tracking-wider text-white">
+                      Longa-Metragem
+                    </span>
+                    <div className="px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/40 text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center gap-2 shadow-sm">
+                      <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
+                      Em Produção
+                    </div>
                   </div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <span className="text-xs font-mono text-[#a1a1aa]">Música & Cultura · São Paulo</span>
-                    <h3 className="font-bebas text-3xl text-white">VOZES DA CENA</h3>
+
+                  {/* Icon & Heading (Sem imagem e sem nome da produção) */}
+                  <div className="flex items-start gap-4 pt-1">
+                    <div className="w-13 h-13 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0 shadow-inner">
+                      <Film className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <span className="text-xs font-mono text-[#a1a1aa] uppercase tracking-wider">Door44 Studios</span>
+                      <h3 className="font-bebas text-3xl sm:text-4xl text-white tracking-wide">
+                        EM PRODUÇÃO
+                      </h3>
+                    </div>
                   </div>
-                </div>
-                <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                  <p className="text-xs sm:text-sm text-[#d4d4d8] leading-relaxed">
-                    Série documental investigativa que mergulha na efervescência musical independente paulistana. Depoimentos viscerais de artistas, produtores e os bastidores das gravações.
+
+                  {/* Informação destacada */}
+                  <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center gap-3.5 text-amber-200">
+                    <Clock className="w-5 h-5 text-amber-400 shrink-0" />
+                    <div>
+                      <p className="text-sm font-bold text-white uppercase tracking-wider">Em Produção</p>
+                      <p className="text-xs text-amber-300 font-medium">Em breve estará disponível</p>
+                    </div>
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-[#a1a1aa] leading-relaxed">
+                    Projeto cinematográfico de longa-metragem em desenvolvimento pela Door44 Studios. Produção executiva, captação e narrativa com padrão cinematográfico internacional.
                   </p>
-                  <div className="pt-3 border-t border-[#27272a] flex items-center justify-between text-xs text-[#a1a1aa]">
-                    <span>Em Pós-Produção</span>
-                    <span className="text-white font-mono">75 min · 4K UHD</span>
-                  </div>
+                </div>
+
+                {/* Footer Status */}
+                <div className="mt-8 pt-4 border-t border-[#27272a] flex items-center justify-between text-xs relative z-10">
+                  <span className="text-amber-400 font-semibold flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+                    Em Produção
+                  </span>
+                  <span className="text-[#e4e4e7] font-mono text-xs">Em breve estará disponível</span>
                 </div>
               </div>
             </div>
