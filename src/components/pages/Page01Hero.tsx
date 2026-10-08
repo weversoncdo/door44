@@ -9,7 +9,7 @@ interface Page01Props {
 
 export const Page01Hero: React.FC<Page01Props> = ({ onNext, onExploreProductions }) => {
   return (
-    <section className="relative w-full min-h-[calc(100vh-5rem)] flex items-center justify-between overflow-hidden bg-[#070709] px-6 sm:px-12 lg:px-20 py-12">
+    <section className="relative w-full max-w-full min-h-[calc(100vh-5rem)] flex items-center justify-between overflow-hidden bg-[#070709] px-4 sm:px-10 lg:px-20 py-12">
       {/* Background with door light beam image */}
       <div className="absolute inset-0 z-0">
         <img
@@ -30,7 +30,7 @@ export const Page01Hero: React.FC<Page01Props> = ({ onNext, onExploreProductions
         </div>
 
         {/* Large Editorial Serif as seen in PDF page 1 */}
-        <h1 className="font-cinzel text-5xl sm:text-7xl lg:text-8xl font-black text-white leading-[0.95] tracking-tight drop-shadow-[0_8px_20px_rgba(0,0,0,0.9)]">
+        <h1 className="font-cinzel text-4xl sm:text-7xl lg:text-8xl font-black text-white leading-[0.95] tracking-tight drop-shadow-[0_8px_20px_rgba(0,0,0,0.9)] break-words">
           DOOR44<br />
           <span className="text-[#f4f4f5]">STUDIOS</span>
         </h1>

@@ -85,7 +85,7 @@ export default function App() {
   }, [activeView]);
 
   return (
-    <div className="min-h-screen bg-[#08080a] text-white flex flex-col font-sans selection:bg-[#e11d24] selection:text-white relative">
+    <div className="min-h-screen bg-[#08080a] text-white flex flex-col font-sans selection:bg-[#e11d24] selection:text-white relative overflow-x-hidden max-w-full w-full">
       {/* Navbar with SOBRE, PRODUÇÕES, PARCEIROS, ORÇAMENTO */}
       <Header
         currentSection={currentSection}
@@ -95,10 +95,10 @@ export default function App() {
       />
 
       {/* Main Content Area */}
-      <main className="flex-1 pt-18 sm:pt-20">
+      <main className="flex-1 pt-18 sm:pt-20 overflow-x-hidden max-w-full w-full">
         {activeView === 'home' ? (
           /* HOME PAGE WITH DEDICATED DIVS FOR SOBRE, PARCEIROS, FORMULÁRIO */
-          <div className="w-full flex flex-col">
+          <div className="w-full max-w-full flex flex-col overflow-x-hidden">
             {/* DIV INÍCIO */}
             <div id="inicio" className="relative scroll-mt-20">
               <Page01Hero

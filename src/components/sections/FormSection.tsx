@@ -4,9 +4,9 @@ import { Send, Sparkles } from 'lucide-react';
 
 export const FormSection: React.FC = () => {
   return (
-    <section className="relative w-full py-20 lg:py-28 bg-[#0b0b10] border-t border-[#27272a]/60 px-4 sm:px-6 lg:px-8">
-      {/* Glow ambient background */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-[#e11d24]/5 blur-[120px] pointer-events-none" />
+    <section className="relative w-full max-w-full overflow-hidden py-20 lg:py-28 bg-[#0b0b10] border-t border-[#27272a]/60 px-4 sm:px-6 lg:px-8">
+      {/* Glow ambient background constrained */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[500px] h-[300px] bg-[#e11d24]/5 blur-[100px] pointer-events-none max-w-full" />
 
       <div className="relative max-w-4xl mx-auto space-y-10">
         {/* Section Heading strictly for the Form DIV */}

@@ -8,8 +8,8 @@ interface Page02Props {
 
 export const Page02About: React.FC<Page02Props> = ({ onGoToProductions }) => {
   return (
-    <section className="relative w-full min-h-[calc(100vh-5rem)] flex items-center justify-between overflow-hidden bg-[#09090c] paper-grunge-bg px-6 sm:px-12 lg:px-20 py-12">
-      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <section className="relative w-full max-w-full min-h-[calc(100vh-5rem)] flex items-center justify-between overflow-hidden bg-[#09090c] paper-grunge-bg px-4 sm:px-10 lg:px-20 py-12">
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         {/* Left Column: Text content exactly matching PDF page 2 */}
         <div className="lg:col-span-7 z-10 space-y-6">
           <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#e11d24]">
@@ -44,18 +44,18 @@ export const Page02About: React.FC<Page02Props> = ({ onGoToProductions }) => {
           </div>
 
           {/* Key pillars / highlights */}
-          <div className="grid grid-cols-3 gap-4 pt-6 border-t border-[#27272a]">
+          <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-6 border-t border-[#27272a]">
             <div>
-              <span className="font-bebas text-2xl sm:text-3xl text-white">4K / CINEMA</span>
-              <p className="text-[11px] text-[#71717a]">Qualidade de ponta</p>
+              <span className="font-bebas text-lg sm:text-2xl md:text-3xl text-white">4K / CINEMA</span>
+              <p className="text-[10px] sm:text-[11px] text-[#71717a]">Qualidade de ponta</p>
             </div>
             <div>
-              <span className="font-bebas text-2xl sm:text-3xl text-[#e11d24]">100%</span>
-              <p className="text-[11px] text-[#71717a]">Personalizado</p>
+              <span className="font-bebas text-lg sm:text-2xl md:text-3xl text-[#e11d24]">100%</span>
+              <p className="text-[10px] sm:text-[11px] text-[#71717a]">Personalizado</p>
             </div>
             <div>
-              <span className="font-bebas text-2xl sm:text-3xl text-white">TODOS GÊNEROS</span>
-              <p className="text-[11px] text-[#71717a]">Rock, Trap, MPB & Pop</p>
+              <span className="font-bebas text-lg sm:text-2xl md:text-3xl text-white">TODOS GÊNEROS</span>
+              <p className="text-[10px] sm:text-[11px] text-[#71717a]">Rock, Trap, MPB & Pop</p>
             </div>
           </div>
 
@@ -71,11 +71,11 @@ export const Page02About: React.FC<Page02Props> = ({ onGoToProductions }) => {
         </div>
 
         {/* Right Column: Exact Attached Image 1 (Official Door44 Symbol) */}
-        <div className="lg:col-span-5 flex items-center justify-center relative">
+        <div className="lg:col-span-5 flex items-center justify-center relative w-full">
           {/* Ambient red halo */}
-          <div className="absolute w-72 h-72 rounded-full bg-[#e11d24]/10 blur-3xl pointer-events-none" />
+          <div className="absolute w-64 h-64 rounded-full bg-[#e11d24]/10 blur-3xl pointer-events-none" />
           
-          <div className="relative w-72 h-72 sm:w-88 sm:h-88 lg:w-96 lg:h-96 rounded-3xl bg-[#18181b] border-2 border-[#27272a] shadow-2xl p-8 sm:p-10 flex items-center justify-center group hover:border-[#e11d24]/40 transition-colors duration-300">
+          <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 max-w-full rounded-3xl bg-[#18181b] border-2 border-[#27272a] shadow-2xl p-6 sm:p-10 flex items-center justify-center group hover:border-[#e11d24]/40 transition-colors duration-300">
             <Geometric44Emblem className="w-full h-full text-white" opacity={1} />
           </div>
         </div>

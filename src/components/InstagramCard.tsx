@@ -56,9 +56,9 @@ export const InstagramCard: React.FC<InstagramCardProps> = ({
   }, [embedUrl]);
 
   return (
-    <div className="w-full max-w-[440px] mx-auto bg-black border-2 border-[#27272a] hover:border-[#dd2a7b]/50 rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 flex flex-col group">
+    <div className="w-full max-w-[440px] min-w-0 mx-auto bg-black border-2 border-[#27272a] hover:border-[#dd2a7b]/50 rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 flex flex-col group">
       {/* Live Instagram Embed Iframe (Directly displaying the post) */}
-      <div className="relative w-full h-[540px] sm:h-[580px] bg-black">
+      <div className="relative w-full max-w-full overflow-hidden h-[480px] sm:h-[580px] bg-black">
         {/* Loading Indicator while iframe initializes */}
         {!iframeLoaded && (
           <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-[#0d0d12] p-6 text-center space-y-3">

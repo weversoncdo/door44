@@ -28,9 +28,9 @@ export const VideoModal: React.FC<VideoModalProps> = ({
       <div className="relative w-full max-w-4xl bg-[#111116] border border-[#27272a] rounded-2xl overflow-hidden shadow-2xl flex flex-col">
         {/* Top header bar */}
         <div className="flex items-center justify-between px-5 py-3.5 bg-[#09090b] border-b border-[#27272a]">
-          <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#e11d24] animate-pulse" />
-            <span className="font-bebas text-lg tracking-wider text-white">
+          <div className="flex items-center gap-2 min-w-0 pr-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#e11d24] animate-pulse shrink-0" />
+            <span className="font-bebas text-base sm:text-lg tracking-wider text-white truncate">
               DOOR44 PLAYBACK // {artist.toUpperCase()} - {title.toUpperCase()}
             </span>
           </div>

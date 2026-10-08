@@ -81,20 +81,20 @@ export const ProductionsPage: React.FC<ProductionsPageProps> = ({
   ];
 
   return (
-    <div className="w-full bg-[#08080a] text-white min-h-screen">
+    <div className="w-full max-w-full bg-[#08080a] text-white min-h-screen overflow-x-hidden">
       {/* Top Breadcrumb & Return bar */}
       <div className="bg-[#0e0e13] border-b border-[#27272a] sticky top-18 sm:top-20 z-30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
           <button
             onClick={onBackToHome}
-            className="inline-flex items-center gap-2 text-xs font-semibold text-[#d4d4d8] hover:text-white transition-colors cursor-pointer group"
+            className="inline-flex items-center gap-2 text-xs font-semibold text-[#d4d4d8] hover:text-white transition-colors cursor-pointer group shrink-0"
           >
             <ArrowLeft className="w-4 h-4 text-[#e11d24] group-hover:-translate-x-1 transition-transform" />
             <span>Voltar ao Início</span>
           </button>
 
-          <div className="flex items-center gap-3 text-xs text-[#a1a1aa]">
-            <span className="hidden sm:inline">Navegação Rápida:</span>
+          <div className="hidden sm:flex items-center gap-3 text-xs text-[#a1a1aa]">
+            <span>Navegação Rápida:</span>
             <button 
               onClick={() => onNavigateSection('SOBRE')} 
               className="hover:text-white transition-colors cursor-pointer"
@@ -120,9 +120,9 @@ export const ProductionsPage: React.FC<ProductionsPageProps> = ({
       </div>
 
       {/* Hero Banner da Página de Produções */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#111117] via-[#09090c] to-[#08080a] py-16 sm:py-24 border-b border-[#27272a]/60">
+      <section className="relative overflow-hidden max-w-full bg-gradient-to-b from-[#111117] via-[#09090c] to-[#08080a] py-16 sm:py-24 border-b border-[#27272a]/60">
         {/* Glow ambient background */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#e11d24]/10 blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[600px] h-[350px] bg-[#e11d24]/10 blur-[100px] pointer-events-none max-w-full" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#181822] border border-[#3f3f46] text-[#e11d24] text-xs font-mono tracking-widest uppercase backdrop-blur-md">
@@ -130,7 +130,7 @@ export const ProductionsPage: React.FC<ProductionsPageProps> = ({
             <span>Produções Audiovisuais Door44 Studios</span>
           </div>
 
-          <h1 className="font-bebas text-5xl sm:text-7xl lg:text-8xl tracking-wider text-white distressed-text leading-none max-w-5xl mx-auto">
+          <h1 className="font-bebas text-4xl sm:text-7xl lg:text-8xl tracking-wider text-white distressed-text leading-none max-w-5xl mx-auto break-words">
             PRODUÇÕES & OBRAS AUDIOVISUAIS
           </h1>
 
@@ -140,7 +140,7 @@ export const ProductionsPage: React.FC<ProductionsPageProps> = ({
           </p>
 
           {/* Capabilities unboxed metadata */}
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs text-[#a1a1aa] pt-2">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-6 text-xs text-[#a1a1aa] pt-2">
             <span>4K UHD & Câmeras Cinema</span>
             <span aria-hidden="true">·</span>
             <span>Direção Artística & Roteiro</span>
@@ -151,11 +151,11 @@ export const ProductionsPage: React.FC<ProductionsPageProps> = ({
           </div>
 
           {/* Filter Bar (Segmented Controls) */}
-          <div className="pt-6 flex justify-center">
-            <div className="inline-flex items-center gap-1.5 p-1.5 bg-[#121217] border border-[#27272a] rounded-xl">
+          <div className="pt-6 flex justify-center w-full max-w-full px-2">
+            <div className="flex flex-wrap items-center justify-center gap-1.5 p-1.5 bg-[#121217] border border-[#27272a] rounded-xl max-w-full">
               <button
                 onClick={() => setActiveFilter('all')}
-                className={`px-4 py-2 text-xs font-semibold rounded-lg transition-all cursor-pointer ${
+                className={`px-3 sm:px-4 py-2 text-[11px] sm:text-xs font-semibold rounded-lg transition-all cursor-pointer text-center ${
                   activeFilter === 'all'
                     ? 'bg-[#e11d24] text-white shadow-md'
                     : 'text-[#a1a1aa] hover:text-white'
@@ -165,7 +165,7 @@ export const ProductionsPage: React.FC<ProductionsPageProps> = ({
               </button>
               <button
                 onClick={() => setActiveFilter('videoclipes')}
-                className={`px-4 py-2 text-xs font-semibold rounded-lg transition-all cursor-pointer ${
+                className={`px-3 sm:px-4 py-2 text-[11px] sm:text-xs font-semibold rounded-lg transition-all cursor-pointer text-center ${
                   activeFilter === 'videoclipes'
                     ? 'bg-[#e11d24] text-white shadow-md'
                     : 'text-[#a1a1aa] hover:text-white'
@@ -175,7 +175,7 @@ export const ProductionsPage: React.FC<ProductionsPageProps> = ({
               </button>
               <button
                 onClick={() => setActiveFilter('cinema')}
-                className={`px-4 py-2 text-xs font-semibold rounded-lg transition-all cursor-pointer ${
+                className={`px-3 sm:px-4 py-2 text-[11px] sm:text-xs font-semibold rounded-lg transition-all cursor-pointer text-center ${
                   activeFilter === 'cinema'
                     ? 'bg-[#e11d24] text-white shadow-md'
                     : 'text-[#a1a1aa] hover:text-white'
@@ -185,7 +185,7 @@ export const ProductionsPage: React.FC<ProductionsPageProps> = ({
               </button>
               <button
                 onClick={() => setActiveFilter('makingof')}
-                className={`px-4 py-2 text-xs font-semibold rounded-lg transition-all cursor-pointer ${
+                className={`px-3 sm:px-4 py-2 text-[11px] sm:text-xs font-semibold rounded-lg transition-all cursor-pointer text-center ${
                   activeFilter === 'makingof'
                     ? 'bg-[#e11d24] text-white shadow-md'
                     : 'text-[#a1a1aa] hover:text-white'

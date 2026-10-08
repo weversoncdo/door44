@@ -9,7 +9,7 @@ import { Users, Instagram, Youtube, Sparkles, MessageSquare, ArrowRight } from '
 
 export const PartnersSection: React.FC = () => {
   return (
-    <section className="relative w-full py-20 lg:py-28 bg-[#09090c] paper-grunge-bg border-t border-[#27272a]/60">
+    <section className="relative w-full max-w-full overflow-hidden py-20 lg:py-28 bg-[#09090c] paper-grunge-bg border-t border-[#27272a]/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
@@ -37,7 +37,7 @@ export const PartnersSection: React.FC = () => {
             <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-center">
               {/* Left Column: Logo Badge (+50% larger size) */}
               <div className="lg:col-span-6 xl:col-span-6 flex flex-col items-center justify-center">
-                <div className="w-full max-w-[480px] sm:max-w-[580px] md:max-w-[650px] lg:max-w-[720px] xl:max-w-[780px] aspect-square flex items-center justify-center shrink-0">
+                <div className="w-full max-w-[280px] sm:max-w-[400px] md:max-w-[550px] lg:max-w-[680px] xl:max-w-[780px] aspect-square flex items-center justify-center">
                   <BuzzkillBoyzBadge size={undefined} className="w-full h-full shadow-2xl hover:scale-105 transition-transform duration-300" />
                 </div>
                 <span className="mt-5 font-mono text-xs sm:text-sm text-[#a1a1aa] uppercase tracking-wider text-center">
@@ -112,7 +112,7 @@ export const PartnersSection: React.FC = () => {
             <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-center">
               {/* Left Column: Logo Badge (+50% larger size) */}
               <div className="lg:col-span-6 xl:col-span-6 flex flex-col items-center justify-center">
-                <div className="w-full max-w-[480px] sm:max-w-[580px] md:max-w-[650px] lg:max-w-[720px] xl:max-w-[780px] aspect-square flex items-center justify-center shrink-0">
+                <div className="w-full max-w-[280px] sm:max-w-[400px] md:max-w-[550px] lg:max-w-[680px] xl:max-w-[780px] aspect-square flex items-center justify-center">
                   <CenaClassBadge size={undefined} className="w-full h-full shadow-2xl hover:scale-105 transition-transform duration-300" />
                 </div>
                 <span className="mt-5 font-mono text-xs sm:text-sm text-[#a1a1aa] uppercase tracking-wider text-center">
@@ -175,7 +175,7 @@ export const PartnersSection: React.FC = () => {
             <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-center">
               {/* Left Column: Logo Badge (+50% larger size) */}
               <div className="lg:col-span-6 xl:col-span-6 flex flex-col items-center justify-center">
-                <div className="w-full max-w-[480px] sm:max-w-[580px] md:max-w-[650px] lg:max-w-[720px] xl:max-w-[780px] aspect-square flex items-center justify-center shrink-0">
+                <div className="w-full max-w-[280px] sm:max-w-[400px] md:max-w-[550px] lg:max-w-[680px] xl:max-w-[780px] aspect-square flex items-center justify-center">
                   <CristiniMakeupBadge size={undefined} className="w-full h-full shadow-2xl hover:scale-105 transition-transform duration-300" />
                 </div>
                 <span className="mt-5 font-mono text-xs sm:text-sm text-[#a1a1aa] uppercase tracking-wider text-center">
@@ -219,10 +219,12 @@ export const PartnersSection: React.FC = () => {
         </div>
 
         {/* Quadro Complementar: A Sua Marca Aqui */}
-        <div className="max-w-4xl mx-auto rounded-2xl bg-[#14141b] border border-[#27272a] p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-5">
-            <YourBrandHereBadge size={100} />
-            <div>
+        <div className="max-w-4xl mx-auto rounded-2xl bg-[#14141b] border border-[#27272a] p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 min-w-0">
+            <div className="shrink-0">
+              <YourBrandHereBadge size={90} />
+            </div>
+            <div className="min-w-0">
               <h4 className="font-bebas text-2xl sm:text-3xl text-white">A SUA MARCA AQUI</h4>
               <p className="text-xs text-[#a1a1aa] max-w-md mt-0.5">
                 Conecte sua marca a artistas autênticos e produções musicais de alto engajamento. Product placement, patrocínios e ativações.
@@ -233,7 +235,7 @@ export const PartnersSection: React.FC = () => {
             href="https://wa.me/5511999999999?text=Ol%C3%A1%20Door44%20Studios!%20Gostaria%20de%20conversar%20sobre%20parceria%20comercial%20para%20minha%20marca."
             target="_blank"
             rel="noreferrer"
-            className="px-5 py-2.5 rounded-lg bg-[#e11d24] hover:bg-[#b91c1c] text-white text-xs font-bold uppercase tracking-wider transition-colors shrink-0 inline-flex items-center gap-2"
+            className="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-[#e11d24] hover:bg-[#b91c1c] text-white text-xs font-bold uppercase tracking-wider transition-colors shrink-0 inline-flex items-center justify-center gap-2"
           >
             <span>Seja um Parceiro</span>
             <ArrowRight className="w-3.5 h-3.5" />
