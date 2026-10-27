@@ -44,7 +44,7 @@ export const ContactForm: React.FC = () => {
           SOLICITE SEU ORÇAMENTO
         </h3>
         <p className="text-xs text-[#a1a1aa] mt-1">
-          Conte sobre seu clipe, curta ou longa-metragem. Retornamos em até 24h.
+          Conte sobre seu clipe ou projeto musical. Retornamos em até 24h.
         </p>
       </div>
 
@@ -83,7 +83,7 @@ export const ContactForm: React.FC = () => {
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                placeholder="Ex: Pedro Henrique"
+                placeholder="Seu Nome"
                 className="w-full px-3.5 py-2.5 rounded-lg bg-[#181820] border border-[#27272a] text-sm text-white focus:outline-none focus:border-[#e11d24] placeholder:text-[#52525b] transition-colors"
               />
             </div>
@@ -95,7 +95,7 @@ export const ContactForm: React.FC = () => {
                 type="text"
                 value={formData.artistOrBand}
                 onChange={(e) => setFormData({ ...formData, artistOrBand: e.target.value })}
-                placeholder="Ex: Gabrielz / Pink Floyd Cover"
+                placeholder="Sua Banda"
                 className="w-full px-3.5 py-2.5 rounded-lg bg-[#181820] border border-[#27272a] text-sm text-white focus:outline-none focus:border-[#e11d24] placeholder:text-[#52525b] transition-colors"
               />
             </div>
@@ -124,7 +124,7 @@ export const ContactForm: React.FC = () => {
                 required
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                placeholder="(11) 98765-4321"
+                placeholder="(00) 0 0000-000"
                 className="w-full px-3.5 py-2.5 rounded-lg bg-[#181820] border border-[#27272a] text-sm text-white focus:outline-none focus:border-[#e11d24] placeholder:text-[#52525b] transition-colors"
               />
             </div>
@@ -138,13 +138,11 @@ export const ContactForm: React.FC = () => {
               <select
                 value={formData.projectType}
                 onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-lg bg-[#181820] border border-[#27272a] text-sm text-white focus:outline-none focus:border-[#e11d24] transition-colors"
+                className="w-full px-3.5 py-2.5 rounded-lg bg-[#181820] border border-[#27272a] text-sm text-white focus:outline-none focus:border-[#e11d24] transition-colors cursor-pointer"
               >
-                <option value="Videoclipe">Videoclipe Musical</option>
-                <option value="Curta-metragem">Curta-metragem</option>
-                <option value="Longa-metragem">Longa-metragem</option>
+                <option value="Videoclipe">Videoclipe</option>
                 <option value="Cobertura / Live Session">Cobertura / Live Session</option>
-                <option value="Parceria Comercial">Parceria Comercial / Casting</option>
+                <option value="Parceria Comercial">Parceria Comercial</option>
               </select>
             </div>
 

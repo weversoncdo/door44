@@ -36,8 +36,7 @@ export const Page01Hero: React.FC<Page01Props> = ({ onNext, onExploreProductions
         </h1>
 
         <p className="mt-6 text-sm sm:text-base text-[#d4d4d8] font-normal max-w-lg leading-relaxed drop-shadow-md">
-          Especializada na criação de videoclipes musicais, curta e longa-metragem.
-          Transformamos ideias e canções em obras-primas visuais.
+          Especializada na criação de videoclipes musicais. Trazemos à vida suas músicas com uma abordagem artística diferenciada.
         </p>
 
         {/* Interactive CTA buttons */}

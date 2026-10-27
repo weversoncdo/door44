@@ -1,16 +1,233 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   BuzzkillBoyzBadge, 
   CenaClassBadge, 
   CristiniMakeupBadge, 
   YourBrandHereBadge 
 } from '../PartnerBadges';
-import { Users, Instagram, Youtube, Sparkles, MessageSquare, ArrowRight } from 'lucide-react';
+import { Users, Instagram, Youtube, ArrowRight } from 'lucide-react';
+import { PartnersAlphabetSortBar } from '../partners/PartnersAlphabetSortBar';
 
 export const PartnersSection: React.FC = () => {
+  const [selectedLetter, setSelectedLetter] = useState<string | null>(null);
+  const [sortBy, setSortBy] = useState<'default' | 'az' | 'za'>('default');
+
+  // Database of strategic partners
+  const partners = [
+    {
+      id: 'buzzkill',
+      name: 'Buzzkill Boyz',
+      letter: 'B',
+      category: 'Mídia & Comunicação Musical',
+      glowColor: 'bg-[#e11d24]/12',
+      hoverBorder: 'group-hover:border-[#e11d24]/50',
+      quoteBorder: 'border-[#e11d24]',
+      order: 1,
+      badge: (
+        <div className="w-full max-w-[280px] sm:max-w-[400px] md:max-w-[550px] lg:max-w-[680px] xl:max-w-[780px] aspect-square flex items-center justify-center">
+          <BuzzkillBoyzBadge size={undefined} className="w-full h-full shadow-2xl hover:scale-105 transition-transform duration-300" />
+        </div>
+      ),
+      paragraphs: [
+        (
+          <p key="1">
+            Com uma comunicação leve, espontânea e próxima da cena musical, <strong className="text-white">BUZZKILL BOYZ</strong> cria diferentes espaços para que nossos artistas possam apresentar seus trabalhos de uma maneira autêntica.
+          </p>
+        ),
+        (
+          <p key="2">
+            Todos os artistas da nossa produtora são automaticamente convidados para o <strong className="text-white">SOFÁ SO GOOD</strong>, um dos quadros do canal, que aposta em entrevistas descontraídas, leves e divertidas.
+          </p>
+        ),
+        (
+          <p key="3">
+            A parceria também envolve a cobertura dos shows no quadro <strong className="text-white">SEM SCRIPT!</strong>, registrando cada apresentação de forma espontânea e verdadeira, acompanhando a energia do palco e tudo aquilo que acontece ao redor dele, além da divulgação de novos álbuns e EPs através do quadro <strong className="text-white">ADMIRÁVEL DISCO NOVO</strong>.
+          </p>
+        ),
+      ],
+      quote: (
+        <p className="text-[#a1a1aa] italic pt-1 border-l-2 border-[#e11d24] pl-3">
+          Essa parceria representa uma extensão do trabalho que fazemos com cada artista: criar oportunidades para que sua música circule, sua identidade seja percebida e sua história encontre novos públicos de uma maneira natural, criativa e verdadeira.
+        </p>
+      ),
+      socials: (
+        <div className="pt-4 flex flex-wrap items-center gap-3 text-xs border-t border-[#27272a]">
+          <a
+            href="https://instagram.com/buzzkillboyz"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-[#181820] hover:bg-[#27272a] border border-[#27272a] text-white hover:text-[#e11d24] transition-colors"
+          >
+            <Instagram className="w-4 h-4 text-[#e11d24]" />
+            <span>@buzzkillboyz</span>
+          </a>
+
+          <a
+            href="https://tiktok.com/@buzzkillboyz"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-[#181820] hover:bg-[#27272a] border border-[#27272a] text-white hover:text-white transition-colors"
+          >
+            <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.04-.1z"/>
+            </svg>
+            <span>@buzzkillboyz</span>
+          </a>
+
+          <a
+            href="https://youtube.com/@BUZZKILLBOYZ"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-[#181820] hover:bg-[#27272a] border border-[#27272a] text-white hover:text-[#dc2626] transition-colors"
+          >
+            <Youtube className="w-4 h-4 text-[#dc2626]" />
+            <span>@BUZZKILLBOYZ</span>
+          </a>
+        </div>
+      ),
+    },
+    {
+      id: 'cenaclass',
+      name: 'Cena Class',
+      letter: 'C',
+      category: 'Casting & Elenco Audiovisual',
+      glowColor: 'bg-[#06b6d4]/12',
+      hoverBorder: 'group-hover:border-[#06b6d4]/50',
+      quoteBorder: 'border-[#06b6d4]',
+      order: 2,
+      badge: (
+        <div className="w-full max-w-[280px] sm:max-w-[400px] md:max-w-[550px] lg:max-w-[680px] xl:max-w-[780px] aspect-square flex items-center justify-center">
+          <CenaClassBadge size={undefined} className="w-full h-full shadow-2xl hover:scale-105 transition-transform duration-300" />
+        </div>
+      ),
+      paragraphs: [
+        (
+          <p key="1">
+            Em nossas produções existe uma equipe inteira trabalhando para transformar uma ideia em realidade. E encontrar os profissionais certos para cada projeto faz parte desse processo. É nesse ponto que a parceria com a <strong className="text-white">CENA CLASS</strong> ganha importância, ampliando nossa busca por talentos e profissionais para diferentes etapas das nossas produções.
+          </p>
+        ),
+        (
+          <p key="2">
+            A parceria contribui na divulgação do nosso casting e na busca por atrizes, atores e figurantes, conectando nossos projetos a novos talentos e perfis que possam dar vida às histórias que nossos artistas queremos contar.
+          </p>
+        ),
+        (
+          <p key="3">
+            Além do elenco, também nos auxilia na busca por profissionais para a pré-produção, produção e pós-produção, fortalecendo nossas equipes e criando novas possibilidades de colaboração.
+          </p>
+        ),
+      ],
+      quote: (
+        <p className="text-[#a1a1aa] italic pt-1 border-l-2 border-[#06b6d4] pl-3">
+          Para nós, essa parceria é uma forma de aproximar talentos, profissionais e projetos, construindo equipes mais completas e abrindo espaço para que novas pessoas façam parte das produções da nossa produtora.
+        </p>
+      ),
+      socials: (
+        <div className="pt-4 flex flex-wrap items-center gap-3 text-xs border-t border-[#27272a]">
+          <a
+            href="https://instagram.com/cenaclass.br"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-[#181820] hover:bg-[#27272a] border border-[#27272a] text-white hover:text-[#06b6d4] transition-colors"
+          >
+            <Instagram className="w-4 h-4 text-[#06b6d4]" />
+            <span>@cenaclass.br</span>
+          </a>
+
+          <a
+            href="https://youtube.com/@CENACLASS"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-[#181820] hover:bg-[#27272a] border border-[#27272a] text-white hover:text-[#dc2626] transition-colors"
+          >
+            <Youtube className="w-4 h-4 text-[#dc2626]" />
+            <span>@CENACLASS</span>
+          </a>
+        </div>
+      ),
+    },
+    {
+      id: 'cristinimakeup',
+      name: 'Cristini Makeup',
+      letter: 'C',
+      category: 'Caracterização & Visagismo',
+      glowColor: 'bg-[#c084fc]/12',
+      hoverBorder: 'group-hover:border-[#c084fc]/50',
+      quoteBorder: 'border-[#c084fc]',
+      order: 3,
+      badge: (
+        <div className="w-full max-w-[280px] sm:max-w-[400px] md:max-w-[550px] lg:max-w-[680px] xl:max-w-[780px] aspect-square flex items-center justify-center">
+          <CristiniMakeupBadge size={undefined} className="w-full h-full shadow-2xl hover:scale-105 transition-transform duration-300" />
+        </div>
+      ),
+      paragraphs: [
+        (
+          <p key="1">
+            Por trás de cada videoclipe existe um cuidado enorme com todos os detalhes que compõem a imagem. E a maquiagem tem um papel importante nessa construção, ajudando a traduzir ideias, criar atmosferas e dar ainda mais personalidade a cada produção. É nesse processo que se destaca o trabalho da <strong className="text-white">Cristini Makeup</strong>.
+          </p>
+        ),
+        (
+          <p key="2">
+            Com técnica, criatividade e um olhar muito atento para cada projeto, ela participa das produções entendendo que a maquiagem vai muito além da beleza. Ela faz parte da identidade visual do trabalho e precisa conversar com a fotografia, o figurino, a iluminação e, principalmente, com a proposta de cada artista.
+          </p>
+        ),
+      ],
+      quote: (
+        <p className="text-[#a1a1aa] italic pt-1 border-l-2 border-[#c084fc] pl-3">
+          Seu trabalho é marcado pela sensibilidade de entender o que cada produção pede. Em alguns momentos, valoriza a beleza natural; em outros, cria uma estética mais forte e marcante. Em todos eles, existe o cuidado de fazer com que a maquiagem esteja integrada à imagem e à história que está sendo contada.
+        </p>
+      ),
+      socials: (
+        <div className="pt-4 flex flex-wrap items-center gap-3 text-xs border-t border-[#27272a]">
+          <a
+            href="https://instagram.com/cristinimakeup"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-[#181820] hover:bg-[#27272a] border border-[#27272a] text-white hover:text-[#c084fc] transition-colors"
+          >
+            <Instagram className="w-4 h-4 text-[#c084fc]" />
+            <span>@cristinimakeup</span>
+          </a>
+        </div>
+      ),
+    },
+  ];
+
+  const availableLetters = Array.from(new Set(partners.map((p) => p.letter.toUpperCase())));
+
+  // Handle letter click: set state and scroll to partners grid smoothly
+  const handleSelectLetter = (letter: string | null) => {
+    setSelectedLetter(letter);
+    if (letter) {
+      setTimeout(() => {
+        const grid = document.getElementById('partners-grid');
+        if (grid) {
+          grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 60);
+    }
+  };
+
+  // Filter partners by letter
+  const filteredPartners = partners.filter((p) => {
+    if (!selectedLetter) return true;
+    return p.name.toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').startsWith(selectedLetter);
+  });
+
+  // Sort partners
+  const sortedPartners = [...filteredPartners].sort((a, b) => {
+    if (sortBy === 'az') {
+      return a.name.localeCompare(b.name, 'pt-BR');
+    }
+    if (sortBy === 'za') {
+      return b.name.localeCompare(a.name, 'pt-BR');
+    }
+    return a.order - b.order;
+  });
+
   return (
     <section className="relative w-full max-w-full overflow-hidden py-20 lg:py-28 bg-[#09090c] paper-grunge-bg border-t border-[#27272a]/60">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-14">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#e11d24]">
@@ -27,195 +244,95 @@ export const PartnersSection: React.FC = () => {
           </p>
         </div>
 
-        {/* 3 Dedicated Quadros exactly matching the uploaded images */}
-        <div className="space-y-12">
-          {/* QUADRO 1: BUZZKILL BOYZ */}
-          <div className="relative rounded-3xl bg-[#0f0f14] border-2 border-[#27272a] overflow-hidden shadow-2xl p-6 sm:p-10 lg:p-12 xl:p-14 paper-grunge-bg group hover:border-[#e11d24]/50 transition-colors duration-300">
-            {/* Ambient Red Glow */}
-            <div className="absolute -top-12 -left-12 w-80 h-80 bg-[#e11d24]/12 blur-3xl pointer-events-none" />
+        {/* Alfabeto Clicável e Dropdown de Ordenação (Abaixo da Descrição) */}
+        <div className="w-full">
+          <PartnersAlphabetSortBar
+            selectedLetter={selectedLetter}
+            onSelectLetter={handleSelectLetter}
+            sortBy={sortBy}
+            onChangeSortBy={setSortBy}
+            availableLetters={availableLetters}
+            totalCount={sortedPartners.length}
+          />
+        </div>
 
-            <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-center">
-              {/* Left Column: Logo Badge (+50% larger size) */}
-              <div className="lg:col-span-6 xl:col-span-6 flex flex-col items-center justify-center">
-                <div className="w-full max-w-[280px] sm:max-w-[400px] md:max-w-[550px] lg:max-w-[680px] xl:max-w-[780px] aspect-square flex items-center justify-center">
-                  <BuzzkillBoyzBadge size={undefined} className="w-full h-full shadow-2xl hover:scale-105 transition-transform duration-300" />
-                </div>
-                <span className="mt-5 font-mono text-xs sm:text-sm text-[#a1a1aa] uppercase tracking-wider text-center">
-                  Mídia & Comunicação Musical
-                </span>
+        {/* Dedicated Quadros dos Parceiros */}
+        <div id="partners-grid" className="space-y-12">
+          {sortedPartners.length === 0 ? (
+            /* Empty State para letras sem parceiro no momento */
+            <div className="py-20 px-4 text-center max-w-xl mx-auto space-y-4 rounded-3xl bg-[#0f0f14] border border-[#27272a] p-8 shadow-2xl">
+              <div className="w-16 h-16 rounded-2xl bg-[#14141c] border border-[#27272a] text-[#e11d24] flex items-center justify-center mx-auto text-3xl font-bebas shadow-inner">
+                {selectedLetter}
               </div>
-
-              {/* Right Column: Title, Exact Text & Social Links */}
-              <div className="lg:col-span-6 xl:col-span-6 space-y-5">
-                <h3 className="font-bebas text-4xl sm:text-6xl text-white tracking-wide distressed-text leading-none">
-                  BUZZKILL BOYZ
-                </h3>
-
-                <div className="space-y-3.5 text-xs sm:text-sm text-[#d4d4d8] leading-relaxed">
-                  <p>
-                    Com uma comunicação leve, espontânea e próxima da cena musical, <strong className="text-white">BUZZKILL BOYZ</strong> cria diferentes espaços para que nossos artistas possam apresentar seus trabalhos de uma maneira autêntica.
-                  </p>
-                  <p>
-                    Todos os artistas da nossa produtora são automaticamente convidados para o <strong className="text-white">SOFÁ SO GOOD</strong>, um dos quadros do canal, que aposta em entrevistas descontraídas, leves e divertidas.
-                  </p>
-                  <p>
-                    A parceria também envolve a cobertura dos shows no quadro <strong className="text-white">SEM SCRIPT!</strong>, registrando cada apresentação de forma espontânea e verdadeira, acompanhando a energia do palco e tudo aquilo que acontece ao redor dele, além da divulgação de novos álbuns e EPs através do quadro <strong className="text-white">ADMIRÁVEL DISCO NOVO</strong>.
-                  </p>
-                  <p className="text-[#a1a1aa] italic pt-1 border-l-2 border-[#e11d24] pl-3">
-                    Essa parceria representa uma extensão do trabalho que fazemos com cada artista: criar oportunidades para que sua música circule, sua identidade seja percebida e sua história encontre novos públicos de uma maneira natural, criativa e verdadeira.
-                  </p>
-                </div>
-
-                {/* Social Links Row */}
-                <div className="pt-4 flex flex-wrap items-center gap-3 text-xs border-t border-[#27272a]">
-                  <a
-                    href="https://instagram.com/buzzkillboyz"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-[#181820] hover:bg-[#27272a] border border-[#27272a] text-white hover:text-[#e11d24] transition-colors"
-                  >
-                    <Instagram className="w-4 h-4 text-[#e11d24]" />
-                    <span>@buzzkillboyz</span>
-                  </a>
-
-                  <a
-                    href="https://tiktok.com/@buzzkillboyz"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-[#181820] hover:bg-[#27272a] border border-[#27272a] text-white hover:text-white transition-colors"
-                  >
-                    <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.04-.1z"/>
-                    </svg>
-                    <span>@buzzkillboyz</span>
-                  </a>
-
-                  <a
-                    href="https://youtube.com/@BUZZKILLBOYZ"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-[#181820] hover:bg-[#27272a] border border-[#27272a] text-white hover:text-[#dc2626] transition-colors"
-                  >
-                    <Youtube className="w-4 h-4 text-[#dc2626]" />
-                    <span>@BUZZKILLBOYZ</span>
-                  </a>
-                </div>
+              <h3 className="font-bebas text-3xl sm:text-4xl text-white tracking-wide">
+                NENHUM PARCEIRO ENCONTRADO COM A LETRA "{selectedLetter}"
+              </h3>
+              <p className="text-sm text-[#a1a1aa] leading-relaxed">
+                Ainda não cadastramos parceiros com a inicial <strong className="text-white">"{selectedLetter}"</strong>. 
+                Nossos parceiros estão disponíveis nas letras <strong className="text-[#e11d24]">B</strong> (Buzzkill Boyz) e <strong className="text-[#06b6d4]">C</strong> (Cena Class e Cristini Makeup).
+              </p>
+              <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
+                <button
+                  onClick={() => handleSelectLetter('B')}
+                  className="px-4 py-2 bg-[#1e1e28] hover:bg-[#e11d24] text-white text-xs font-bold rounded-xl border border-[#27272a] hover:border-[#e11d24] transition-all cursor-pointer"
+                >
+                  Ver Letra B (Buzzkill Boyz)
+                </button>
+                <button
+                  onClick={() => handleSelectLetter('C')}
+                  className="px-4 py-2 bg-[#1e1e28] hover:bg-[#06b6d4] text-white text-xs font-bold rounded-xl border border-[#27272a] hover:border-[#06b6d4] transition-all cursor-pointer"
+                >
+                  Ver Letra C (Cena Class & Cristini)
+                </button>
+                <button
+                  onClick={() => handleSelectLetter(null)}
+                  className="px-4 py-2 bg-[#181820] hover:bg-[#27272a] text-[#a1a1aa] hover:text-white text-xs font-bold rounded-xl border border-[#27272a] transition-all cursor-pointer"
+                >
+                  Ver Todos os Parceiros
+                </button>
               </div>
             </div>
-          </div>
+          ) : (
+            sortedPartners.map((partner) => (
+              <div
+                key={partner.id}
+                id={`partner-${partner.id}`}
+                className={`relative rounded-3xl bg-[#0f0f14] border-2 border-[#27272a] overflow-hidden shadow-2xl p-6 sm:p-10 lg:p-12 xl:p-14 paper-grunge-bg group ${partner.hoverBorder} transition-colors duration-300`}
+              >
+                {/* Ambient Glow */}
+                <div className={`absolute -top-12 -left-12 w-80 h-80 ${partner.glowColor} blur-3xl pointer-events-none`} />
 
-          {/* QUADRO 2: CENA CLASS */}
-          <div className="relative rounded-3xl bg-[#0f0f14] border-2 border-[#27272a] overflow-hidden shadow-2xl p-6 sm:p-10 lg:p-12 xl:p-14 paper-grunge-bg group hover:border-[#06b6d4]/50 transition-colors duration-300">
-            {/* Ambient Cyan Glow */}
-            <div className="absolute -top-12 -left-12 w-80 h-80 bg-[#06b6d4]/12 blur-3xl pointer-events-none" />
+                <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-center">
+                  {/* Left Column: Logo Badge */}
+                  <div className="lg:col-span-6 xl:col-span-6 flex flex-col items-center justify-center">
+                    {partner.badge}
+                    <span className="mt-5 font-mono text-xs sm:text-sm text-[#a1a1aa] uppercase tracking-wider text-center">
+                      {partner.category}
+                    </span>
+                  </div>
 
-            <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-center">
-              {/* Left Column: Logo Badge (+50% larger size) */}
-              <div className="lg:col-span-6 xl:col-span-6 flex flex-col items-center justify-center">
-                <div className="w-full max-w-[280px] sm:max-w-[400px] md:max-w-[550px] lg:max-w-[680px] xl:max-w-[780px] aspect-square flex items-center justify-center">
-                  <CenaClassBadge size={undefined} className="w-full h-full shadow-2xl hover:scale-105 transition-transform duration-300" />
-                </div>
-                <span className="mt-5 font-mono text-xs sm:text-sm text-[#a1a1aa] uppercase tracking-wider text-center">
-                  Casting & Elenco Audiovisual
-                </span>
-              </div>
+                  {/* Right Column: Title, Exact Text & Social Links */}
+                  <div className="lg:col-span-6 xl:col-span-6 space-y-5">
+                    <div className="flex items-center justify-between gap-3 flex-wrap">
+                      <h3 className="font-bebas text-4xl sm:text-6xl text-white tracking-wide distressed-text leading-none">
+                        {partner.name}
+                      </h3>
+                      <span className="w-8 h-8 rounded-lg bg-[#181822] border border-[#27272a] flex items-center justify-center font-bebas text-lg text-[#e11d24]">
+                        {partner.letter}
+                      </span>
+                    </div>
 
-              {/* Right Column: Title, Exact Text & Social Links */}
-              <div className="lg:col-span-6 xl:col-span-6 space-y-5">
-                <h3 className="font-bebas text-4xl sm:text-6xl text-white tracking-wide distressed-text leading-none">
-                  CENA CLASS
-                </h3>
+                    <div className="space-y-3.5 text-xs sm:text-sm text-[#d4d4d8] leading-relaxed">
+                      {partner.paragraphs}
+                      {partner.quote}
+                    </div>
 
-                <div className="space-y-3.5 text-xs sm:text-sm text-[#d4d4d8] leading-relaxed">
-                  <p>
-                    Em nossas produções existe uma equipe inteira trabalhando para transformar uma ideia em realidade. E encontrar os profissionais certos para cada projeto faz parte desse processo. É nesse ponto que a parceria com a <strong className="text-white">CENA CLASS</strong> ganha importância, ampliando nossa busca por talentos e profissionais para diferentes etapas das nossas produções.
-                  </p>
-                  <p>
-                    A parceria contribui na divulgação do nosso casting e na busca por atrizes, atores e figurantes, conectando nossos projetos a novos talentos e perfis que possam dar vida às histórias que nossos artistas queremos contar.
-                  </p>
-                  <p>
-                    Além do elenco, também nos auxilia na busca por profissionais para a pré-produção, produção e pós-produção, fortalecendo nossas equipes e criando novas possibilidades de colaboração.
-                  </p>
-                  <p className="text-[#a1a1aa] italic pt-1 border-l-2 border-[#06b6d4] pl-3">
-                    Para nós, essa parceria é uma forma de aproximar talentos, profissionais e projetos, construindo equipes mais completas e abrindo espaço para que novas pessoas façam parte das produções da nossa produtora.
-                  </p>
-                </div>
-
-                {/* Social Links Row */}
-                <div className="pt-4 flex flex-wrap items-center gap-3 text-xs border-t border-[#27272a]">
-                  <a
-                    href="https://instagram.com/cenaclass.br"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-[#181820] hover:bg-[#27272a] border border-[#27272a] text-white hover:text-[#06b6d4] transition-colors"
-                  >
-                    <Instagram className="w-4 h-4 text-[#06b6d4]" />
-                    <span>@cenaclass.br</span>
-                  </a>
-
-                  <a
-                    href="https://youtube.com/@CENACLASS"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-[#181820] hover:bg-[#27272a] border border-[#27272a] text-white hover:text-[#dc2626] transition-colors"
-                  >
-                    <Youtube className="w-4 h-4 text-[#dc2626]" />
-                    <span>@CENACLASS</span>
-                  </a>
+                    {partner.socials}
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-
-          {/* QUADRO 3: CRISTINI MAKEUP */}
-          <div className="relative rounded-3xl bg-[#0f0f14] border-2 border-[#27272a] overflow-hidden shadow-2xl p-6 sm:p-10 lg:p-12 xl:p-14 paper-grunge-bg group hover:border-[#c084fc]/50 transition-colors duration-300">
-            {/* Ambient Purple Glow */}
-            <div className="absolute -top-12 -left-12 w-80 h-80 bg-[#c084fc]/12 blur-3xl pointer-events-none" />
-
-            <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-center">
-              {/* Left Column: Logo Badge (+50% larger size) */}
-              <div className="lg:col-span-6 xl:col-span-6 flex flex-col items-center justify-center">
-                <div className="w-full max-w-[280px] sm:max-w-[400px] md:max-w-[550px] lg:max-w-[680px] xl:max-w-[780px] aspect-square flex items-center justify-center">
-                  <CristiniMakeupBadge size={undefined} className="w-full h-full shadow-2xl hover:scale-105 transition-transform duration-300" />
-                </div>
-                <span className="mt-5 font-mono text-xs sm:text-sm text-[#a1a1aa] uppercase tracking-wider text-center">
-                  Caracterização & Visagismo
-                </span>
-              </div>
-
-              {/* Right Column: Title, Exact Text & Social Links */}
-              <div className="lg:col-span-6 xl:col-span-6 space-y-5">
-                <h3 className="font-bebas text-4xl sm:text-6xl text-white tracking-wide distressed-text leading-none">
-                  CRISTINI MAKEUP
-                </h3>
-
-                <div className="space-y-3.5 text-xs sm:text-sm text-[#d4d4d8] leading-relaxed">
-                  <p>
-                    Por trás de cada videoclipe existe um cuidado enorme com todos os detalhes que compõem a imagem. E a maquiagem tem um papel importante nessa construção, ajudando a traduzir ideias, criar atmosferas e dar ainda mais personalidade a cada produção. É nesse processo que se destaca o trabalho da <strong className="text-white">Cristini Makeup</strong>.
-                  </p>
-                  <p>
-                    Com técnica, criatividade e um olhar muito atento para cada projeto, ela participa das produções entendendo que a maquiagem vai muito além da beleza. Ela faz parte da identidade visual do trabalho e precisa conversar com a fotografia, o figurino, a iluminação e, principalmente, com a proposta de cada artista.
-                  </p>
-                  <p className="text-[#a1a1aa] italic pt-1 border-l-2 border-[#c084fc] pl-3">
-                    Seu trabalho é marcado pela sensibilidade de entender o que cada produção pede. Em alguns momentos, valoriza a beleza natural; em outros, cria uma estética mais forte e marcante. Em todos eles, existe o cuidado de fazer com que a maquiagem esteja integrada à imagem e à história que está sendo contada.
-                  </p>
-                </div>
-
-                {/* Social Links Row */}
-                <div className="pt-4 flex flex-wrap items-center gap-3 text-xs border-t border-[#27272a]">
-                  <a
-                    href="https://instagram.com/cristinimakeup"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-[#181820] hover:bg-[#27272a] border border-[#27272a] text-white hover:text-[#c084fc] transition-colors"
-                  >
-                    <Instagram className="w-4 h-4 text-[#c084fc]" />
-                    <span>@cristinimakeup</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+            ))
+          )}
         </div>
 
         {/* Quadro Complementar: A Sua Marca Aqui */}

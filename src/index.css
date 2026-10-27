@@ -75,8 +75,7 @@
   background-color: #08080a;
   background-image: 
     radial-gradient(ellipse at 50% 30%, rgba(225, 29, 36, 0.05) 0%, transparent 60%),
-    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.02) 0%, transparent 40%),
-    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.008) 0, rgba(255, 255, 255, 0.008) 1px, transparent 0, transparent 50px);
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.005) 0, rgba(255, 255, 255, 0.005) 1px, transparent 0, transparent 50px);
 }
 
 /* Distressed stamped text effect */

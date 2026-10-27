@@ -1,6 +1,6 @@
 import React from 'react';
 import { HeaderBrand } from './Logo44';
-import { Instagram, Youtube, Mail, MessageCircle, MapPin, ExternalLink } from 'lucide-react';
+import { Instagram, Youtube, Mail, MessageCircle, MapPin, Briefcase, Linkedin } from 'lucide-react';
 
 interface FooterProps {
   onNavigateHomeSection: (section: 'INÍCIO' | 'SOBRE' | 'PARCEIROS' | 'ORÇAMENTO' | 'CONTATO') => void;
@@ -21,7 +21,7 @@ export const Footer: React.FC<FooterProps> = ({
             <HeaderBrand onClick={() => onNavigateHomeSection('INÍCIO')} />
             
             <p className="text-sm text-[#d4d4d8] max-w-sm leading-relaxed">
-              Produtora audiovisual especializada em videoclipes musicais, curta e longa-metragem para todos os gêneros artísticos.
+              Produtora audiovisual especializada em videoclipes musicais. Garantimos uma experiência personalizada, atendendo às necessidades e sonhos de cada artista.
             </p>
 
             <p className="text-xs text-[#71717a] italic">
@@ -30,7 +30,7 @@ export const Footer: React.FC<FooterProps> = ({
           </div>
 
           {/* Column 2: Endereço & Localização */}
-          <div className="lg:col-span-4 space-y-3">
+          <div className="lg:col-span-4 space-y-4">
             <h4 className="font-bebas text-lg tracking-wider text-white">
               ENDEREÇO & BASE DE PRODUÇÃO
             </h4>
@@ -40,12 +40,22 @@ export const Footer: React.FC<FooterProps> = ({
                 <MapPin className="w-4 h-4 text-[#e11d24] shrink-0 mt-0.5" />
                 <div>
                   <span className="font-semibold text-white block">São Paulo — SP, Brasil</span>
-                  <span className="text-[#a1a1aa]">Mooca, Vila Madalena & Avenida Paulista</span>
                 </div>
               </div>
               <p className="text-[11px] text-[#71717a] pl-6.5">
                 Produções em estúdio e externas em todo o território nacional.
               </p>
+            </div>
+
+            {/* Trabalhe Conosco Clicável */}
+            <div className="pt-1">
+              <a
+                href="mailto:studios.door44@gmail.com?subject=Trabalhe%20Conosco%20-%20Door44%20Studios&body=Ol%C3%A1%20equipe%20Door44%20Studios!%20Gostaria%20de%20apresentar%20meu%20portf%C3%B3lio%2Fcurr%C3%ADculo%20para%20fazer%20parte%20das%20produ%C3%A7%C3%B5es."
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-[#14141a] hover:bg-[#1f1f28] border border-[#27272a] hover:border-[#e11d24]/50 text-white hover:text-[#e11d24] text-xs font-semibold transition-all group cursor-pointer"
+              >
+                <Briefcase className="w-4 h-4 text-[#e11d24] group-hover:scale-110 transition-transform" />
+                <span>Trabalhe Conosco</span>
+              </a>
             </div>
           </div>
 
@@ -60,7 +70,7 @@ export const Footer: React.FC<FooterProps> = ({
             </p>
 
             {/* Social Icons row */}
-            <div className="flex items-center gap-3 pt-1">
+            <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-1">
               {/* Instagram */}
               <a
                 href="https://instagram.com/door44.studios"
@@ -96,6 +106,17 @@ export const Footer: React.FC<FooterProps> = ({
                 </svg>
               </a>
 
+              {/* LinkedIn */}
+              <a
+                href="https://www.linkedin.com/company/door44studios"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="LinkedIn Door44 Studios"
+                className="w-10 h-10 rounded-xl bg-[#14141a] hover:bg-[#0a66c2] border border-[#27272a] hover:border-[#0a66c2] text-white flex items-center justify-center transition-all group shadow-md"
+              >
+                <Linkedin className="w-5 h-5 group-hover:scale-110 transition-transform" />
+              </a>
+
               {/* WhatsApp */}
               <a
                 href="https://wa.me/5511999999999?text=Ol%C3%A1%20Door44%20Studios!%20Vim%20pelo%20site%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto."
@@ -120,22 +141,31 @@ export const Footer: React.FC<FooterProps> = ({
         </div>
       </div>
 
-      {/* Bottom Bar: Centralizado ao final da página "Desenvolvido pela Agência WKA" linkado com o site www.agenciawka.com.br */}
+      {/* Bottom Bar: Centralizado ao final da página com Trabalhe Conosco e Desenvolvido pela Agência WKA */}
       <div className="w-full bg-[#030304] border-t border-[#1a1a22] py-5 px-4">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-2 text-center text-xs text-[#71717a]">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left text-xs text-[#71717a]">
           <span>© {new Date().getFullYear()} Door44 Studios. Todos os direitos reservados.</span>
-          <span className="hidden sm:inline">·</span>
-          <p className="text-center text-xs text-[#d4d4d8]">
-            Desenvolvido pela{' '}
+          
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs">
             <a
-              href="https://www.agenciawka.com.br"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-bold text-white hover:text-[#e11d24] transition-colors underline decoration-[#e11d24] decoration-2 underline-offset-4"
+              href="mailto:studios.door44@gmail.com?subject=Trabalhe%20Conosco%20-%20Door44%20Studios&body=Ol%C3%A1%20equipe%20Door44%20Studios!%20Gostaria%20de%20apresentar%20meu%20portf%C3%B3lio%2Fcurr%C3%ADculo."
+              className="text-[#d4d4d8] hover:text-[#e11d24] transition-colors font-medium hover:underline cursor-pointer"
             >
-              Agência WKA
+              Trabalhe Conosco
             </a>
-          </p>
+            <span>·</span>
+            <p className="text-center text-xs text-[#d4d4d8]">
+              Desenvolvido pela{' '}
+              <a
+                href="https://www.agenciawka.com.br"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-white hover:text-[#e11d24] transition-colors underline decoration-[#e11d24] decoration-2 underline-offset-4"
+              >
+                Agência WKA
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>

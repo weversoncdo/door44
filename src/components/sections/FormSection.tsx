@@ -21,7 +21,7 @@ export const FormSection: React.FC = () => {
           </h2>
 
           <p className="text-sm text-[#a1a1aa] max-w-lg mx-auto">
-            Preencha o formulário abaixo com os detalhes da sua música, curta ou longa-metragem. Retornamos com proposta personalizada em até 24 horas.
+            Preencha o formulário abaixo com os detalhes da sua música ou projeto. Retornamos com proposta personalizada em até 24 horas.
           </p>
         </div>
 
