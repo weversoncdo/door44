@@ -141,31 +141,22 @@ export const Footer: React.FC<FooterProps> = ({
         </div>
       </div>
 
-      {/* Bottom Bar: Centralizado ao final da página com Trabalhe Conosco e Desenvolvido pela Agência WKA */}
+      {/* Bottom Bar: Centralizado ao final da página "Desenvolvido pela Agência WKA" linkado com o site www.agenciawka.com.br */}
       <div className="w-full bg-[#030304] border-t border-[#1a1a22] py-5 px-4">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left text-xs text-[#71717a]">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-2 text-center text-xs text-[#71717a]">
           <span>© {new Date().getFullYear()} Door44 Studios. Todos os direitos reservados.</span>
-          
-          <div className="flex flex-wrap items-center justify-center gap-4 text-xs">
+          <span className="hidden sm:inline">·</span>
+          <p className="text-center text-xs text-[#d4d4d8]">
+            Desenvolvido pela{' '}
             <a
-              href="mailto:studios.door44@gmail.com?subject=Trabalhe%20Conosco%20-%20Door44%20Studios&body=Ol%C3%A1%20equipe%20Door44%20Studios!%20Gostaria%20de%20apresentar%20meu%20portf%C3%B3lio%2Fcurr%C3%ADculo."
-              className="text-[#d4d4d8] hover:text-[#e11d24] transition-colors font-medium hover:underline cursor-pointer"
+              href="https://www.agenciawka.com.br"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold text-white hover:text-[#e11d24] transition-colors underline decoration-[#e11d24] decoration-2 underline-offset-4"
             >
-              Trabalhe Conosco
+              Agência WKA
             </a>
-            <span>·</span>
-            <p className="text-center text-xs text-[#d4d4d8]">
-              Desenvolvido pela{' '}
-              <a
-                href="https://www.agenciawka.com.br"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-bold text-white hover:text-[#e11d24] transition-colors underline decoration-[#e11d24] decoration-2 underline-offset-4"
-              >
-                Agência WKA
-              </a>
-            </p>
-          </div>
+          </p>
         </div>
       </div>
     </footer>
