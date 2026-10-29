@@ -1,6 +1,6 @@
 import React from 'react';
 import { HeaderBrand } from './Logo44';
-import { Instagram, Youtube, Mail, MessageCircle, MapPin, Briefcase, Linkedin } from 'lucide-react';
+import { Instagram, Youtube, Mail, MapPin, Briefcase, Linkedin } from 'lucide-react';
 
 interface FooterProps {
   onNavigateHomeSection: (section: 'INÍCIO' | 'SOBRE' | 'PARCEIROS' | 'ORÇAMENTO' | 'CONTATO') => void;
@@ -117,16 +117,6 @@ export const Footer: React.FC<FooterProps> = ({
                 <Linkedin className="w-5 h-5 group-hover:scale-110 transition-transform" />
               </a>
 
-              {/* WhatsApp */}
-              <a
-                href="https://wa.me/5511999999999?text=Ol%C3%A1%20Door44%20Studios!%20Vim%20pelo%20site%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto."
-                target="_blank"
-                rel="noopener noreferrer"
-                title="WhatsApp Door44"
-                className="w-10 h-10 rounded-xl bg-[#14141a] hover:bg-[#22c55e] border border-[#27272a] hover:border-[#22c55e] text-white flex items-center justify-center transition-all group shadow-md"
-              >
-                <MessageCircle className="w-5 h-5 group-hover:scale-110 transition-transform" />
-              </a>
 
               {/* Email */}
               <a
