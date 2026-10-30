@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Send, CheckCircle2, MessageSquare, Sparkles } from 'lucide-react';
+import { Send, CheckCircle2, MessageSquare, Sparkles, Mail } from 'lucide-react';
+
+const RECIPIENT_EMAIL = 'weverson.duarte@hotmail.com';
 
 export const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -8,20 +10,63 @@ export const ContactForm: React.FC = () => {
     email: '',
     phone: '',
     projectType: 'Videoclipe',
-    budgetRange: 'R$ 5.000 a R$ 15.000',
+    budgetRange: 'Urgente (Este mês)',
     description: '',
   });
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${RECIPIENT_EMAIL}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          'Nome': formData.name,
+          'Artista / Banda': formData.artistOrBand || 'Não informado',
+          'E-mail': formData.email,
+          'WhatsApp / Telefone': formData.phone,
+          'Tipo de Produção': formData.projectType,
+          'Previsão de Produção': formData.budgetRange,
+          'Ideia ou Conceito': formData.description || 'Não especificado',
+          _subject: `Solicitação de Orçamento: ${formData.name} - ${formData.projectType} (Door44 Studios)`,
+          _template: 'table',
+          _captcha: 'false',
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Falha no envio do formulário');
+      }
+
       setSubmitted(true);
-    }, 600);
+    } catch (err) {
+      console.warn('Envio via FormSubmit AJAX fallback:', err);
+      // Fallback direto via cliente de e-mail do usuário
+      const subject = encodeURIComponent(`Solicitação de Orçamento - ${formData.name} (${formData.projectType})`);
+      const body = encodeURIComponent(
+        `Olá Door44 Studios!\n\n` +
+        `Solicitação de Orçamento enviada pelo site:\n\n` +
+        `• Nome: ${formData.name}\n` +
+        `• Artista / Banda: ${formData.artistOrBand || 'Não informado'}\n` +
+        `• E-mail: ${formData.email}\n` +
+        `• WhatsApp / Telefone: ${formData.phone}\n` +
+        `• Tipo de Produção: ${formData.projectType}\n` +
+        `• Previsão: ${formData.budgetRange}\n\n` +
+        `Descrição da ideia / conceito:\n${formData.description || 'Videoclipe musical.'}\n`
+      );
+      window.location.href = `mailto:${RECIPIENT_EMAIL}?subject=${subject}&body=${body}`;
+      setSubmitted(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleWhatsAppRedirect = () => {
@@ -52,19 +97,31 @@ export const ContactForm: React.FC = () => {
         <div className="p-6 bg-[#181820] border border-[#27272a] rounded-xl text-center space-y-4 animate-in zoom-in-95 duration-200">
           <CheckCircle2 className="w-12 h-12 text-[#e11d24] mx-auto" />
           <h4 className="font-bebas text-2xl text-white">PROPOSTA ENVIADA COM SUCESSO!</h4>
-          <p className="text-xs text-[#a1a1aa] max-w-md mx-auto">
-            A equipe Door44 Studios já recebeu suas informações e entrará em contato para alinhar roteiro, cronograma e direção artística.
+          <p className="text-xs text-[#a1a1aa] max-w-md mx-auto leading-relaxed">
+            As informações da sua solicitação foram enviadas para <strong className="text-white">{RECIPIENT_EMAIL}</strong>.
+            A equipe Door44 Studios entrará em contato para alinhar roteiro, cronograma e direção artística.
           </p>
           <div className="pt-2 flex flex-col sm:flex-row gap-3 justify-center">
             <button
               onClick={handleWhatsAppRedirect}
-              className="px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white bg-[#22c55e] hover:bg-[#16a34a] rounded-lg transition-colors inline-flex items-center justify-center gap-2 cursor-pointer"
+              className="px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white bg-[#22c55e] hover:bg-[#16a34a] rounded-lg transition-colors inline-flex items-center justify-center gap-2 cursor-pointer shadow-md"
             >
               <MessageSquare className="w-4 h-4" />
               Falar direto pelo WhatsApp
             </button>
             <button
-              onClick={() => setSubmitted(false)}
+              onClick={() => {
+                setSubmitted(false);
+                setFormData({
+                  name: '',
+                  artistOrBand: '',
+                  email: '',
+                  phone: '',
+                  projectType: 'Videoclipe',
+                  budgetRange: 'Urgente (Este mês)',
+                  description: '',
+                });
+              }}
               className="px-4 py-2 text-xs font-semibold text-[#a1a1aa] hover:text-white transition-colors cursor-pointer"
             >
               Enviar outra mensagem
@@ -153,7 +210,7 @@ export const ContactForm: React.FC = () => {
               <select
                 value={formData.budgetRange}
                 onChange={(e) => setFormData({ ...formData, budgetRange: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-lg bg-[#181820] border border-[#27272a] text-sm text-white focus:outline-none focus:border-[#e11d24] transition-colors"
+                className="w-full px-3.5 py-2.5 rounded-lg bg-[#181820] border border-[#27272a] text-sm text-white focus:outline-none focus:border-[#e11d24] transition-colors cursor-pointer"
               >
                 <option value="Urgente (Este mês)">Urgente (Este mês)</option>
                 <option value="Próximos 2 a 3 meses">Próximos 2 a 3 meses</option>
@@ -181,7 +238,10 @@ export const ContactForm: React.FC = () => {
             className="w-full py-3 px-5 rounded-lg bg-[#e11d24] hover:bg-[#b91c1c] text-white font-bold tracking-wider uppercase text-xs transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-[0_0_20px_rgba(225,29,36,0.3)] disabled:opacity-50"
           >
             {loading ? (
-              <span>Enviando proposta...</span>
+              <span className="flex items-center gap-2">
+                <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                <span>Enviando solicitação...</span>
+              </span>
             ) : (
               <>
                 <Send className="w-4 h-4" />
