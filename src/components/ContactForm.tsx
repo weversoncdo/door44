@@ -128,15 +128,17 @@ export const ContactForm: React.FC = () => {
             </p>
           </div>
 
-          {/* Card explicativo com aviso importante sobre Hotmail / Spam */}
+          {/* Card explicativo com aviso importante sobre Hotmail e Ativação */}
           <div className="p-4 rounded-xl bg-[#14141c] border border-amber-500/30 text-left space-y-2">
             <div className="flex items-center gap-2 text-amber-400 font-bold text-xs uppercase tracking-wide">
               <AlertCircle className="w-4 h-4 shrink-0 text-amber-400" />
-              <span>Aviso Importante ao Administrador</span>
+              <span>Integração de E-mail Conectada</span>
             </div>
+            <p className="text-xs text-[#d4d4d8] leading-relaxed">
+              O sistema enviou a notificação para <strong className="text-white">{RECIPIENT_EMAIL}</strong>.
+            </p>
             <p className="text-xs text-[#a1a1aa] leading-relaxed">
-              Em contas <strong>Hotmail / Outlook</strong>, a primeira notificação automática de novos formulários frequentemente chega na pasta de <strong className="text-white">Lixo Eletrônico / Spam</strong>. 
-              Por favor, acesse sua conta <strong className="text-white">{RECIPIENT_EMAIL}</strong> e verifique o lixo eletrônico para confirmar o recebimento.
+              No primeiro envio, chega um e-mail com o botão verde <strong className="text-[#22c55e]">"Activate and read it"</strong>. Basta clicar nele <strong className="text-white">uma única vez</strong> para liberar. A partir de então, todas as mensagens e orçamentos do site chegam instantaneamente e diretamente na sua caixa de entrada com todos os dados completos!
             </p>
           </div>
 
